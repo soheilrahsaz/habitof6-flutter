@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-import 'package:habitof/model/register_model.dart';
+import 'package:habitof/model/auth/register_model.dart';
 import 'package:habitof/remote_service/auth_service.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -49,17 +49,13 @@ class RegisterScreen extends StatelessWidget {
             color: Theme.of(context).colorScheme.secondary,
             onPressed: () {
               if (_formKey.currentState!.saveAndValidate()) {
-                print(_formKey.currentState?.value["username"]);
-                print(_formKey.currentState?.value["email"]);
-                print(_formKey.currentState?.value["password"]);
-
                 AuthService().registerUser(RegisterModel(
                     username: _formKey.currentState?.value["username"],
                     email: _formKey.currentState?.value["email"],
                     password: _formKey.currentState?.value["password"]));
               }
             },
-            child: const Text('Login'),
+            child: const Text('Register'),
           ),
         ]),
       ),

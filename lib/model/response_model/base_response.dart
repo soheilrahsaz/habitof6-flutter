@@ -1,4 +1,4 @@
-class BaseResponse<T> {
+abstract class BaseResponse<T> {
   BaseResponse({this.result, this.error});
 
   T? result;
